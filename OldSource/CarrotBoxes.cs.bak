@@ -1,0 +1,84 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class CarrotBoxes {
+public double theProbability(string[] information) {
+
+}
+
+
+
+
+// BEGIN CUT HERE
+	public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); if ((Case == -1) || (Case == 3)) test_case_3(); if ((Case == -1) || (Case == 4)) test_case_4(); if ((Case == -1) || (Case == 5)) test_case_5(); }
+	private void verify_case(int Case, double Expected, double Received) {
+		Console.Write("Test Case #" + Case + "...");
+		if (Expected == Received) 
+			Console.WriteLine("PASSED"); 
+		else { 
+			Console.WriteLine("FAILED"); 
+			Console.WriteLine("\tExpected: \"" + Expected + '\"');
+			Console.WriteLine("\tReceived: \"" + Received + '\"'); } }
+	private void test_case_0() { string[] Arg0 = new string[]{"YYYYY",
+ "NYNNN",
+ "NNYNN",
+ "NNNYN",
+ "NNNNY"}
+; double Arg1 = 0.8; verify_case(0, Arg1, theProbability(Arg0)); }
+	private void test_case_1() { string[] Arg0 = new string[]{"YNNNN",
+ "NYNNN",
+ "NNYNN",
+ "NNNYN",
+ "NNNNY"}; double Arg1 = 0.2; verify_case(1, Arg1, theProbability(Arg0)); }
+	private void test_case_2() { string[] Arg0 = new string[]{"Y"}; double Arg1 = 1.0; verify_case(2, Arg1, theProbability(Arg0)); }
+	private void test_case_3() { string[] Arg0 = new string[]{"YNNNN",
+ "YYNNN",
+ "YNYNN",
+ "NNNYY",
+ "NNNYY"}
+; double Arg1 = 0.6; verify_case(3, Arg1, theProbability(Arg0)); }
+	private void test_case_4() { string[] Arg0 = new string[]{"YYYNNNYN",
+ "NYNNNNYN",
+ "NNYNNNNN",
+ "NYNYNNNN",
+ "YNNNYNNY",
+ "NNYNNYNN",
+ "NNNNYNYN",
+ "NNYNNNNY"}
+; double Arg1 = 0.875; verify_case(4, Arg1, theProbability(Arg0)); }
+	private void test_case_5() { string[] Arg0 = new string[]{"YNNNNNNNNYNNNNNNNNNN",
+ "NYNNNNNNNNNNNNNNNNNN",
+ "NNYNNNNNNNYNNNNNYNNN",
+ "NNNYNYNNNNNNNNYNNNNN",
+ "NNNNYNNNNNNNNNYNNNNY",
+ "NNNNNYNNNNNNNNNNNNNY",
+ "NNNNYNYNYNNNNNNNNNNN",
+ "NNNNNNNYNNNYYNNNNNNN",
+ "NNNNNNNNYNNNNNNNNNNN",
+ "YNNNNNNNNYNNNNNYNNNN",
+ "NNNNNNNNNNYNNNNNNNNN",
+ "NYNNNNNNNNNYNNNNNNNN",
+ "NNNNNNNYNNNNYNNNNNNN",
+ "NNNNNNNNNNNNNYNNNYNN",
+ "NNNNNNNNNNNYNNYNNNYN",
+ "NYNNNNNNNNNNNNNYNNNN",
+ "NNYNNNNNNNNNNNNNYNNN",
+ "NNNNNNNNNNNNNYNYNYNN",
+ "NNNNNNNNYNYNNNNNNNYY",
+ "NNNYNNNNNNNNNNNNNNNY"}; double Arg1 = 0.75; verify_case(5, Arg1, theProbability(Arg0)); }
+
+// END CUT HERE
+// BEGIN CUT HERE
+public static void Main() {
+try {
+CarrotBoxes ___test = new CarrotBoxes();
+___test.run_test(-1);
+} catch(Exception e) {
+//Console.WriteLine(e.StackTrace);
+Console.WriteLine(e.ToString());
+}
+}
+// END CUT HERE
+}

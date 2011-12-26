@@ -1,0 +1,45 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class StrongEconomy {
+    public long earn(long n, long k, long price, long target)
+    {
+        if (target == 0) return 0;
+        else if (target <= n * k) return 1;
+        int i;
+        long res = (target + n * k - 1) / (n * k);
+        
+        long money = 0;
+
+        long turn = 0;
+        for (i = 1; i <= 2000003; i++)
+        {
+            long plus = 0;
+            if (money < price)
+            {
+                plus = (price - money + n * k - 1) / (n * k);
+                money += n * k * plus;
+            }
+            money -= price;
+            turn += plus;
+            if (n <= k) n++;
+            else k++;
+            long nowres;
+            if (target <= money) nowres = turn;
+            else nowres = (target - money + n * k - 1) / (n * k) + turn;
+            //Console.WriteLine(n + " " + k + " " + turn + " " + money + " " + nowres);
+            res = Math.Min(res, nowres);
+        }
+        return res;
+    }
+
+
+
+}
+
+
+// Powered by FileEdit
+// Powered by TZTester 1.01 [25-Feb-2003] [modified for C# by Petr]
+// Powered by CodeProcessor

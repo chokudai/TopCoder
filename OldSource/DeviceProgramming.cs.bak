@@ -1,0 +1,43 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class DeviceProgramming {
+public long minBytes(int[] offset, int[] size, int maxPacketSize, int overhead) {
+
+}
+
+
+
+
+// BEGIN CUT HERE
+	public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); if ((Case == -1) || (Case == 3)) test_case_3(); if ((Case == -1) || (Case == 4)) test_case_4(); if ((Case == -1) || (Case == 5)) test_case_5(); }
+	private void verify_case(int Case, long Expected, long Received) {
+		Console.Write("Test Case #" + Case + "...");
+		if (Expected == Received) 
+			Console.WriteLine("PASSED"); 
+		else { 
+			Console.WriteLine("FAILED"); 
+			Console.WriteLine("\tExpected: \"" + Expected + '\"');
+			Console.WriteLine("\tReceived: \"" + Received + '\"'); } }
+	private void test_case_0() { int[] Arg0 = new int[]{0, 42, 60}; int[] Arg1 = new int[]{40, 15, 2}; int Arg2 = 26; int Arg3 = 6; long Arg4 = 78l; verify_case(0, Arg4, minBytes(Arg0, Arg1, Arg2, Arg3)); }
+	private void test_case_1() { int[] Arg0 = new int[]{0, 42, 60}; int[] Arg1 = new int[]{40, 15, 13}; int Arg2 = 26; int Arg3 = 6; long Arg4 = 92l; verify_case(1, Arg4, minBytes(Arg0, Arg1, Arg2, Arg3)); }
+	private void test_case_2() { int[] Arg0 = new int[]{0, 2, 13}; int[] Arg1 = new int[]{1, 7, 2}; int Arg2 = 10; int Arg3 = 5; long Arg4 = 26l; verify_case(2, Arg4, minBytes(Arg0, Arg1, Arg2, Arg3)); }
+	private void test_case_3() { int[] Arg0 = new int[]{10264, 111, 357, 100066, 714}; int[] Arg1 = new int[]{117, 134, 235, 2395, 23}; int Arg2 = 100; int Arg3 = 10; long Arg4 = 3254l; verify_case(3, Arg4, minBytes(Arg0, Arg1, Arg2, Arg3)); }
+	private void test_case_4() { int[] Arg0 = new int[]{1, 100000000, 450000000}; int[] Arg1 = new int[]{99999999, 315000000, 500000000}; int Arg2 = 1000; int Arg3 = 30; long Arg4 = 943298999l; verify_case(4, Arg4, minBytes(Arg0, Arg1, Arg2, Arg3)); }
+	private void test_case_5() { int[] Arg0 = new int[]{0, 1000000000}; int[] Arg1 = new int[]{1000000000, 1000000000}; int Arg2 = 1000; int Arg3 = 999; long Arg4 = 2000000000000l; verify_case(5, Arg4, minBytes(Arg0, Arg1, Arg2, Arg3)); }
+
+// END CUT HERE
+// BEGIN CUT HERE
+public static void Main() {
+try {
+DeviceProgramming ___test = new DeviceProgramming();
+___test.run_test(-1);
+} catch(Exception e) {
+//Console.WriteLine(e.StackTrace);
+Console.WriteLine(e.ToString());
+}
+}
+// END CUT HERE
+}

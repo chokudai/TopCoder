@@ -1,0 +1,59 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class T9 {
+public string message(string[] part, string[] dict, string[] keystr) {
+
+}
+
+
+
+
+// BEGIN CUT HERE
+	public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); if ((Case == -1) || (Case == 3)) test_case_3(); if ((Case == -1) || (Case == 4)) test_case_4(); if ((Case == -1) || (Case == 5)) test_case_5(); }
+	private void verify_case(int Case, string Expected, string Received) {
+		Console.Write("Test Case #" + Case + "...");
+		if (Expected == Received) 
+			Console.WriteLine("PASSED"); 
+		else { 
+			Console.WriteLine("FAILED"); 
+			Console.WriteLine("\tExpected: \"" + Expected + '\"');
+			Console.WriteLine("\tReceived: \"" + Received + '\"'); } }
+	private void test_case_0() { string[] Arg0 = new string[]{"", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}; string[] Arg1 = new string[]{"bad"}; string[] Arg2 = new string[]{"2230223"}; string Arg3 = "bad bad"; verify_case(0, Arg3, message(Arg0, Arg1, Arg2)); }
+	private void test_case_1() { string[] Arg0 = new string[]{"", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}; string[] Arg1 = new string[]{"the", "tie"}; string[] Arg2 = new string[]{"0843#000843#000"}; string Arg3 = " tie   tie   "; verify_case(1, Arg3, message(Arg0, Arg1, Arg2)); }
+	private void test_case_2() { string[] Arg0 = new string[]{"", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}; string[] Arg1 = new string[]{"bad", "ace", "aad", "aae", "aaf", "acf", "acd", "the", "tie"}; string[] Arg2 = new string[]{"223#02", "23*#00843#0"}; string Arg3 = "aae bad  tie "; verify_case(2, Arg3, message(Arg0, Arg1, Arg2)); }
+	private void test_case_3() { string[] Arg0 = new string[]{"", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}; string[] Arg1 = new string[]{"the", "tie", "bad", "ace", "aad", "aae", "aaf", "acf", "acd"}; string[] Arg2 = new string[]{"84300223#02", "23#*"}; string Arg3 = "the  aae bad"; verify_case(3, Arg3, message(Arg0, Arg1, Arg2)); }
+	private void test_case_4() { string[] Arg0 = new string[]{"", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}; string[] Arg1 = new string[]{"bad", "ace", "aad", "aae", "tie", "aaf", "acf", "acd", "the"}; string[] Arg2 = new string[]{"223#02", "23######"}; string Arg3 = "aae bad"; verify_case(4, Arg3, message(Arg0, Arg1, Arg2)); }
+	private void test_case_5() { string[] Arg0 = new string[]{"", "rq", "lde", "yoauz", "cbfgn", "tjkpx", "wvs", "ih", "m"}; string[] Arg1 = new string[]{"xktgmfmoqlmivm", 
+ "hmthr", 
+ "tpjgmnmaremiwm", 
+ "tpjcmnmyrlmhvm", 
+ "xkpnmgmzqdmhsm", 
+ "wqopvvmiig", 
+ "melbcbqeeg", 
+ "jkxnmbmardmhwm", 
+ "kpxnmcmyqlmism", 
+ "wrztvsmhhf", 
+ "srztssmiic", 
+ "pxtgmfmyrdmhwm", 
+ "vqoxswmiin", 
+ "wryksvmihb", 
+ "ptjfmbmoremhvm"}; string[] Arg2 = new string[]{"00", 
+ "7246779885##00000089682000007246779885##0000724677", 
+ "9885#000089682000093355523350066659594239879###000"}; string Arg3 = "  wqopvvmiig      hmthr     wqopvvmiig    vqoxswmiin    hmthr    melbcbqeeg  pxtgmfmyrdmhwm   "; verify_case(5, Arg3, message(Arg0, Arg1, Arg2)); }
+
+// END CUT HERE
+// BEGIN CUT HERE
+public static void Main() {
+try {
+T9 ___test = new T9();
+___test.run_test(-1);
+} catch(Exception e) {
+//Console.WriteLine(e.StackTrace);
+Console.WriteLine(e.ToString());
+}
+}
+// END CUT HERE
+}

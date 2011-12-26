@@ -1,0 +1,236 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class MonochromePuzzle {
+    List<int>[] lh;
+    List<int>[] lw;
+    int[,] nowh;
+    int[,] needh;
+    int ret;
+    const int MAX = 99999;
+    int[] nowpos;
+    int[] nowset;
+    int len;
+
+    void shuffle(int[] ar)
+    {
+        Random r = new Random();
+        int i;
+        for (i = 0; i < len; i++)
+        {
+            int next = r.Next(len - i) + i;
+            int temp = ar[i];
+            ar[i] = ar[next];
+            ar[next] = temp;
+        }
+    }
+
+    public int getMinimum(string[] board)
+    {
+
+        ret = MAX;
+        int i, j;
+        len = board.Length;
+        int[] sumh = new int[len];
+        int[] sumw = new int[len];
+        lh = new List<int>[len];
+        lw = new List<int>[len];
+        len = 50;
+
+        int[] num = new int[len];
+        for (i = 0; i < len; i++) num[i] = i;
+        shuffle(num);
+        for (int ii = 0; ii < len; ii++)
+        {
+            for (int jj = 0; jj < len; jj++)
+            {
+                i = num[ii]; j = num[jj];
+                if (Math.Abs(i - j) == 1 || Math.Abs(i + j) == len - 1 || (Math.Max(i, j) == len / 2 - 1 && Math.Min(i, j) == 0) || (Math.Max(i, j) == len - 1 && Math.Min(i, j) == len / 2))
+                {
+                    Console.Write('#');
+                }
+                else Console.Write('.');
+            }
+            Console.WriteLine();
+        }
+        j = 0;
+
+        for (i = 0; i < board.Length; i++)
+        {
+            lh[i] = new List<int>();
+            lw[i] = new List<int>();
+        }
+        for (i = 0; i < board.Length; i++)
+        {
+            if (board[i][j] == '#')
+            {
+                lh[i].Add(j);
+                lw[j].Add(i);
+                sumh[i]++;
+                sumw[j]++;
+                if (board[j][i] != '#') return -1;
+            }
+        }
+        for (i = 0; i < board.Length; i++) if (sumh[i] != sumw[i] || sumh[i] != 3) return -1;
+        nowh = new int[len, 3];
+        needh = new int[len, 3];
+        for (i = 0; i < len; i++)
+        {
+            int count = 0;
+            foreach (int a in lh[i])
+            {
+                nowh[i, count++] = a;
+            }
+        }
+        for (i = 0; i < len; i++)
+        {
+            int count = 0;
+            for (j = 0; j < len; j++)
+            {
+                if (Math.Abs(i - j) == 1 || Math.Abs(i + j) == len - 1 || (Math.Max(i, j) == len / 2 - 1 && Math.Min(i, j) == 0) || (Math.Max(i, j) == len - 1 && Math.Min(i, j) == len / 2))
+                {
+                    needh[i, count++] = j;
+                }
+            }
+        }
+        nowpos = new int[len];
+        for (i = 0; i < len; i++) nowpos[i] = nowset[i] = MAX;
+        for (i = 0; i < len; i++)
+        {
+            nowpos[i] = 0;
+            nowset[i] = 0;
+
+            nowpos[i] = MAX;
+            nowset[i] = MAX;
+        }
+
+        if (ret == MAX) return -1;
+        else return ret;
+    }
+
+
+    int getret()
+    {
+        int i, j;
+        int r = 0;
+        for (i = 0; i < len; i++)
+        {
+            for (j = 0; j < i; j++)
+            {
+                if (nowpos[i] > nowpos[j]) r++;
+            }
+        }
+        return r / 2;
+    }
+
+    class Algorithm
+    {
+        public static bool next_permutation<T>(T[] array) where T : IComparable
+        {
+            return next_permutation(array, 0, array.Length);
+        }
+
+        public static bool next_permutation<T>(T[] array, int start, int length) where T : IComparable
+        {
+            int end = start + length - 1;
+            if (end <= start) return false;
+            int last = end;
+            while (true)
+            {
+                int pos = last--;
+                if (array[last].CompareTo(array[pos]) < 0)
+                {
+                    int i;
+                    for (i = end + 1; array[last].CompareTo(array[--i]) >= 0; ) { }
+                    T tmp = array[last]; array[last] = array[i]; array[i] = tmp;
+                    Array.Reverse(array, pos, end - pos + 1);
+                    return true;
+                }
+                if (last == start)
+                {
+                    //Array.Reverse(array, start, end - start);
+                    return false;
+                }
+            }
+        }
+    }
+
+    // BEGIN CUT HERE
+    public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); if ((Case == -1) || (Case == 3)) test_case_3(); if ((Case == -1) || (Case == 4)) test_case_4(); if ((Case == -1) || (Case == 5)) test_case_5(); }
+	private void verify_case(int Case, int Expected, int Received) {
+		Console.Write("Test Case #" + Case + "...");
+		if (Expected == Received) 
+			Console.WriteLine("PASSED"); 
+		else { 
+			Console.WriteLine("FAILED"); 
+			Console.WriteLine("\tExpected: \"" + Expected + '\"');
+			Console.WriteLine("\tReceived: \"" + Received + '\"'); } }
+	private void test_case_0() { string[] Arg0 = new string[]{".##.#."
+,"#.##.."
+,"##...#"
+,".#..##"
+,"#..#.#"
+,"..###."}; int Arg1 = 2; verify_case(0, Arg1, getMinimum(Arg0)); }
+	private void test_case_1() { string[] Arg0 = new string[]{"###..."
+,".##..."
+,"..#..."
+,"#..###"
+,"##..##"
+,"###..#"}; int Arg1 = -1; verify_case(1, Arg1, getMinimum(Arg0)); }
+	private void test_case_2() { string[] Arg0 = new string[]{".#.#...#"
+,"#.#...#."
+,".#.#.#.."
+,"#.#.#..."
+,"...#.#.#"
+,"..#.#.#."
+,".#...#.#"
+,"#...#.#."}; int Arg1 = 0; verify_case(2, Arg1, getMinimum(Arg0)); }
+	private void test_case_3() { string[] Arg0 = new string[]{".#..#....#"
+,"#....#..#."
+,"....###..."
+,"....#.#..#"
+,"#.##......"
+,".##....#.."
+,"..##...#.."
+,".....##.#."
+,".#.....#.#"
+,"#..#....#."}
+; int Arg1 = 2; verify_case(3, Arg1, getMinimum(Arg0)); }
+	private void test_case_4() { string[] Arg0 = new string[]{".##.....#."
+,"#..#.....#"
+,"#..##....."
+,".##..#...."
+,"..#..##..."
+,"...##..#.."
+,"....#..##."
+,".....##..#"
+,"#.....#..#"
+,".#.....##."}; int Arg1 = 5; verify_case(4, Arg1, getMinimum(Arg0)); }
+	private void test_case_5() { string[] Arg0 = new string[]{".......##.#."
+,"......#..#.#"
+,"......#..##."
+,".......##..#"
+,"......#.#..#"
+,".......#.##."
+,".##.#......."
+,"#..#.#......"
+,"#..##......."
+,".##..#......"
+,"#.#..#......"
+,".#.##......."}; int Arg1 = 5; verify_case(5, Arg1, getMinimum(Arg0)); }
+
+// END CUT HERE
+// BEGIN CUT HERE
+public static void Main() {
+try {
+MonochromePuzzle ___test = new MonochromePuzzle();
+___test.run_test(-1);
+} catch(Exception e) {
+//Console.WriteLine(e.StackTrace);
+Console.WriteLine(e.ToString());
+}
+}
+// END CUT HERE
+}

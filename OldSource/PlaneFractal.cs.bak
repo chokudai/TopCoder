@@ -1,0 +1,57 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class PlaneFractal {
+public string[] getPattern(int s, int N, int K, int r1, int r2, int c1, int c2) {
+
+}
+
+
+
+
+// BEGIN CUT HERE
+	public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); if ((Case == -1) || (Case == 3)) test_case_3(); }
+	private void verify_case(int Case, string[] Expected, string[] Received) {
+		Console.Write("Test Case #" + Case + "...");
+		if (equal_arrays(Expected, Received)) 
+			Console.WriteLine("PASSED"); 
+		else { 
+			Console.WriteLine("FAILED"); 
+			Console.WriteLine("\tExpected: " + print_array(Expected)); 
+			Console.WriteLine("\tReceived: " + print_array(Received)); } }
+	string print_array(string[] V) {
+		System.Text.StringBuilder builder = new System.Text.StringBuilder();
+		builder.Append("{ ");
+		foreach (string o in V) {
+			builder.Append('\"');
+			builder.Append(o.ToString());
+			builder.Append("\",");
+		}
+		builder.Append(" }");
+		return builder.ToString();
+	}
+	bool equal_arrays(string[] a, string[]b) {
+		if (a.Length != b.Length) return false;
+		for (int i = 0; i < a.Length; ++i) if (a[i] != b[i]) return false;
+		return true;
+	}
+	private void test_case_0() { int Arg0 = 1; int Arg1 = 5; int Arg2 = 3; int Arg3 = 0; int Arg4 = 4; int Arg5 = 0; int Arg6 = 4; string[] Arg7 = new string[]{"00000", "01110", "01110", "01110", "00000" }; verify_case(0, Arg7, getPattern(Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6)); }
+	private void test_case_1() { int Arg0 = 2; int Arg1 = 3; int Arg2 = 1; int Arg3 = 0; int Arg4 = 8; int Arg5 = 0; int Arg6 = 8; string[] Arg7 = new string[]{"000000000", "010010010", "000000000", "000111000", "010111010", "000111000", "000000000", "010010010", "000000000" }; verify_case(1, Arg7, getPattern(Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6)); }
+	private void test_case_2() { int Arg0 = 3; int Arg1 = 3; int Arg2 = 1; int Arg3 = 4; int Arg4 = 11; int Arg5 = 5; int Arg6 = 10; string[] Arg7 = new string[]{"101001", "100000", "000000", "001001", "000000", "000011", "001011", "000011" }; verify_case(2, Arg7, getPattern(Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6)); }
+	private void test_case_3() { int Arg0 = 2; int Arg1 = 8; int Arg2 = 4; int Arg3 = 56; int Arg4 = 61; int Arg5 = 33; int Arg6 = 56; string[] Arg7 = new string[]{"000000000000000000000000", "000000000000000000000000", "011110000111100001111000", "011110000111100001111000", "011110000111100001111000", "011110000111100001111000" }; verify_case(3, Arg7, getPattern(Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6)); }
+
+// END CUT HERE
+// BEGIN CUT HERE
+public static void Main() {
+try {
+PlaneFractal ___test = new PlaneFractal();
+___test.run_test(-1);
+} catch(Exception e) {
+//Console.WriteLine(e.StackTrace);
+Console.WriteLine(e.ToString());
+}
+}
+// END CUT HERE
+}

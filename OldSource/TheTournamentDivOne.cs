@@ -1,0 +1,128 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class TheTournamentDivOne {
+    public int find(int[] points, int w, int d)
+    {
+        int i, j;
+        int sumpoint = 0;
+        int sumdraw = 0;
+        int maxdraw = 0;
+        int[] tradememo = new int[points.Length];
+        int[] cantrade = new int[points.Length];
+
+        int mini = g(w, d);
+        int trade = w * d / mini;
+        int inc = w / mini;
+
+        for (i = 0; i < points.Length; i++)
+        {
+            sumpoint += points[i];
+            for (j = 0; ; j++)
+            {
+                if ((points[i] - j * d) % w == 0)
+                {
+                    maxdraw = Math.Max(maxdraw, j);
+                    sumdraw += j;
+                    break;
+                }
+                else if (points[i] - j * d < 0) return -1;
+            }
+            //Console.WriteLine(j);
+            tradememo[i] = j;
+            cantrade[i] = (points[i] - j * d) / trade;
+            //Console.WriteLine(j);
+        }
+
+        for (i = 0; i < points.Length; i++)
+        {
+            //sumdraw += tradememo[i];
+            maxdraw = Math.Max(maxdraw, tradememo[i]);
+        }
+        //Console.WriteLine(sumdraw);
+        for (; sumdraw < maxdraw * 2; sumdraw += inc) ;
+
+        //Console.WriteLine(sumdraw);
+        if (sumdraw % 2 == 1 && inc % 2 == 0) return -1;
+        //Console.WriteLine(inc);
+        bool flag = false;
+        int best = -1;
+        for (;; sumdraw += inc)
+        {
+            //Console.WriteLine(sumdraw);
+            if (sumdraw % 2 != 0) continue;
+            if (sumdraw * d > sumpoint) break;
+            int nowsumdraw = 0;
+            for (i = 0; i < points.Length; i++)
+            {
+                for (; cantrade[i] != 0 && sumdraw >= (tradememo[i] + inc) * 2; )
+                {
+                    tradememo[i] += inc;
+                    cantrade[i]--;
+                    flag = true;
+                }
+                nowsumdraw += tradememo[i];
+                maxdraw = Math.Max(maxdraw, tradememo[i]);
+            }
+            //Console.WriteLine(sumdraw + " " + nowsumdraw);
+            //Console.WriteLine(nowsumdraw);
+            if (nowsumdraw < sumdraw) continue;
+            if (nowsumdraw % 2 != 0 && (!flag || nowsumdraw - inc < sumdraw)) continue;
+            if (best == -1)
+            {
+                best = sumdraw;
+                if (d * 2 <= w) break;
+            }
+            else
+            {
+                if (d * 2 > w) best = sumdraw;
+            }
+            //break;
+        }
+        if (best == -1) return -1;
+        int nokori = sumpoint - best * d;
+        int win = nokori / w;
+        //Console.WriteLine(nokori);
+        return best / 2 + win;
+
+    }
+
+    int g(int a, int b)
+    {
+        if (a < b) return g(b, a);
+        if (b == 0) return a;
+        return g(b, a % b);
+    }
+
+    // BEGIN CUT HERE
+    public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); if ((Case == -1) || (Case == 3)) test_case_3(); }
+	private void verify_case(int Case, int Expected, int Received) {
+		Console.Write("Test Case #" + Case + "...");
+		if (Expected == Received) 
+			Console.WriteLine("PASSED"); 
+		else { 
+			Console.WriteLine("FAILED"); 
+			Console.WriteLine("\tExpected: \"" + Expected + '\"');
+			Console.WriteLine("\tReceived: \"" + Received + '\"'); } }
+	private void test_case_0() { int[] Arg0 = new int[]{10, 1, 1}; int Arg1 = 2; int Arg2 = 1; int Arg3 = 6; verify_case(0, Arg3, find(Arg0, Arg1, Arg2)); }
+    //private void test_case_0() { int[] Arg0 = new int[] { 3, 1 }; int Arg1 = 3; int Arg2 = 1; int Arg3 = 6; verify_case(0, Arg3, find(Arg0, Arg1, Arg2)); }
+	
+    private void test_case_1() { int[] Arg0 = new int[]{1, 1, 1}; int Arg1 = 2; int Arg2 = 1; int Arg3 = -1; verify_case(1, Arg3, find(Arg0, Arg1, Arg2)); }
+	private void test_case_2() { int[] Arg0 = new int[]{1, 4, 0, 2}; int Arg1 = 3; int Arg2 = 1; int Arg3 = 3; verify_case(2, Arg3, find(Arg0, Arg1, Arg2)); }
+	private void test_case_3() { int[] Arg0 = new int[]{8, 3, 8, 5, 9, 2, 7, 11}; int Arg1 = 3; int Arg2 = 2; int Arg3 = 15; verify_case(3, Arg3, find(Arg0, Arg1, Arg2)); }
+
+// END CUT HERE
+// BEGIN CUT HERE
+public static void Main() {
+try {
+TheTournamentDivOne ___test = new TheTournamentDivOne();
+___test.run_test(-1);
+} catch(Exception e) {
+//Console.WriteLine(e.StackTrace);
+Console.WriteLine(e.ToString());
+}
+}
+// END CUT HERE
+}

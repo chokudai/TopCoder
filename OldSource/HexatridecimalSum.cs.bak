@@ -1,0 +1,110 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class HexatridecimalSum {
+
+    public string maximizeSum(string[] numbers, int k) {
+        int len = numbers.Length;
+        int[,] num = new int[len, 60];
+        int i, j;
+        int count;
+        for (i = 0; i < len; i++)
+        {
+            count = 0;
+            for (j = numbers[i].Length - 1; j >= 0; j--)
+            {
+                num[i, count] = getin(numbers[i][j]);
+                count++;
+            }
+        }
+        int[,] sum = new int[36, 60];
+        for (i = 0; i < len; i++)
+        {
+            for (j = 59; j >= 0; j--)
+            {
+                if (num[i, j] != 0) break;
+            }
+            for (; j >= 0; j--)
+            {
+                sum[num[i, j], j] += 35 - num[i, j];
+            }
+        }
+        int[] result = new int[60];
+        for (i = 0; i < len; i++)
+        {
+            for (j = 0; j < 60; j++)
+            {
+                result[j] += num[i, j];
+            }
+        }
+        for (i = 0; i < len; i++)
+        {
+            for (j = 0; j < 59; j++)
+            {
+                sum[i, j + 1] += sum[i, j] / 36;
+                sum[i, j] %= 36;
+            }
+        }
+        bool[] used = new bool[36];
+        for (int aa=0; aa < k; aa++)
+        {
+            int best = -1;
+            for (int l = 0; l < 36; l++)
+            {
+                if (used[l]) continue;
+                if (best == -1) { best = l; continue; }
+                for (j = 59; j >=0; j--)
+                {
+                    if (sum[l, j] > sum[best, j])
+                    {
+                        best = l;
+                        break;
+                    }
+                    if (sum[l, j] != sum[best, j]) break;
+                }
+            }
+            if (best == -1) break;
+            for (j = 0; j < 60; j++)
+            {
+                result[j] += sum[best, j];
+            }
+            used[best] = true;
+        }
+
+
+        for (j = 0; j < 59; j++)
+        {
+            result[j + 1] += result[j] / 36;
+            result[j] %= 36;
+        }
+        string res = "";
+        for (j = 59; j >= 0; j--)
+        {
+            if (result[j] != 0) break;
+        }
+        for (; j >= 0; j--) res += getcha(result[j]);
+        return res;
+    }
+
+    char getcha(int a)
+    {
+        if (a < 10) return (char)('0' + a);
+        else a -= 10; return (char)('A' + a);
+    }
+
+    int getin(char c)
+    {
+        if (c < '9') return c - '0';
+        else return c - 'A' + 10;
+    }
+
+
+
+}
+
+
+// Powered by FileEdit
+// Powered by TZTester 1.01 [25-Feb-2003] [modified for C# by Petr]
+// Powered by CodeProcessor

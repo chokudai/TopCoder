@@ -1,0 +1,38 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class OneRegister {
+    Dictionary<int, String> dic;
+    
+    public string getProgram(int s, int t)
+    {
+        dic = new Dictionary<int, string>();
+        dic[s] = "";
+        Queue<int> q = new Queue<int>();
+        q.Enqueue(s);
+        while (q.Count != 0)
+        {
+            int a = q.Dequeue();
+            if(a==t) return dic[t];
+            long next;
+            next = (long)a * a;
+            if (next <= t && !dic.ContainsKey((int)next)) { dic[(int)next] = dic[a] + "*"; q.Enqueue((int)next); }
+            next = a * 2;
+            if (next <= t && !dic.ContainsKey((int)next)) { dic[(int)next] = dic[a] + "+"; q.Enqueue((int)next); }
+            next = 1;
+            if (next <= t && !dic.ContainsKey((int)next)) { dic[(int)next] = dic[a] + "/"; q.Enqueue((int)next); }
+        }
+        return ":-(";
+    }
+
+
+
+
+}
+
+
+// Powered by FileEdit
+// Powered by TZTester 1.01 [25-Feb-2003] [modified for C# by Petr]
+// Powered by CodeProcessor

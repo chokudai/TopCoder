@@ -1,0 +1,79 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class ModuloFourDivisor {
+
+    public int countQuadruplets(long[] A, long[] B, long[] C, long[] D)
+    {
+        int i, j, k, l;
+        long a, b, c, d;
+        int res = 0;
+        for (i = 0; i < A.Length; i++)
+        {
+            a = A[i];
+            for (j = 0; j < B.Length; j++)
+            {
+                b = B[j];
+                if (b == 0) continue;
+                for (k = 0; k < C.Length; k++)
+                {
+                    c = C[k];
+                    for (l = 0; l < D.Length; l++)
+                    {
+                        d = D[l];
+                        res += check(a, b, c, d);
+                    }
+                }
+            }
+        }
+        return res;
+    }
+
+    int check(long a, long b, long c, long d)
+    {
+        long E = b + d;
+        bool flag = false;
+        if (a == 0 && c == 0) flag = true;
+        else if (E == c && a % E == 0) flag = true;
+        if (!flag) return 0;
+        if (d == 0) return 1;
+        long f = (b-d)/gcd(b,d);
+        if (f == 0 || f == 1) return 1;
+        else return 0;
+    }
+
+    long gcd(long a, long b)
+    {
+        if (b == 0) return a;
+        else return gcd(b, a % b);
+    }
+
+    // BEGIN CUT HERE
+    public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); }
+	private void verify_case(int Case, int Expected, int Received) {
+		Console.Write("Test Case #" + Case + "...");
+		if (Expected == Received) 
+			Console.WriteLine("PASSED"); 
+		else { 
+			Console.WriteLine("FAILED"); 
+			Console.WriteLine("\tExpected: \"" + Expected + '\"');
+			Console.WriteLine("\tReceived: \"" + Received + '\"'); } }
+	private void test_case_0() { long[] Arg0 = new long[]{1}; long[] Arg1 = new long[]{1}; long[] Arg2 = new long[]{1}; long[] Arg3 = new long[]{0}; int Arg4 = 1; verify_case(0, Arg4, countQuadruplets(Arg0, Arg1, Arg2, Arg3)); }
+	private void test_case_1() { long[] Arg0 = new long[]{0}; long[] Arg1 = new long[]{0}; long[] Arg2 = new long[]{0}; long[] Arg3 = new long[]{0}; int Arg4 = 0; verify_case(1, Arg4, countQuadruplets(Arg0, Arg1, Arg2, Arg3)); }
+	private void test_case_2() { long[] Arg0 = new long[]{0}; long[] Arg1 = new long[]{0,1}; long[] Arg2 = new long[]{0}; long[] Arg3 = new long[]{0}; int Arg4 = 1; verify_case(2, Arg4, countQuadruplets(Arg0, Arg1, Arg2, Arg3)); }
+
+// END CUT HERE
+// BEGIN CUT HERE
+public static void Main() {
+try {
+ModuloFourDivisor ___test = new ModuloFourDivisor();
+___test.run_test(-1);
+} catch(Exception e) {
+//Console.WriteLine(e.StackTrace);
+Console.WriteLine(e.ToString());
+}
+}
+// END CUT HERE
+}

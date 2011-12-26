@@ -1,0 +1,43 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class SaveTheTrees {
+public int minimumCut(int[] x, int[] y, int[] h) {
+
+}
+
+
+
+
+// BEGIN CUT HERE
+	public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); if ((Case == -1) || (Case == 3)) test_case_3(); if ((Case == -1) || (Case == 4)) test_case_4(); if ((Case == -1) || (Case == 5)) test_case_5(); }
+	private void verify_case(int Case, int Expected, int Received) {
+		Console.Write("Test Case #" + Case + "...");
+		if (Expected == Received) 
+			Console.WriteLine("PASSED"); 
+		else { 
+			Console.WriteLine("FAILED"); 
+			Console.WriteLine("\tExpected: \"" + Expected + '\"');
+			Console.WriteLine("\tReceived: \"" + Received + '\"'); } }
+	private void test_case_0() { int[] Arg0 = new int[]{1, 2, 8, 9, 5}; int[] Arg1 = new int[]{1, 8, 2, 9, 5}; int[] Arg2 = new int[]{1, 1, 1, 1, 32}; int Arg3 = 1; verify_case(0, Arg3, minimumCut(Arg0, Arg1, Arg2)); }
+	private void test_case_1() { int[] Arg0 = new int[]{1, 2, 8, 9, 5}; int[] Arg1 = new int[]{1, 8, 2, 9, 5}; int[] Arg2 = new int[]{1, 1, 1, 1, 27}; int Arg3 = 2; verify_case(1, Arg3, minimumCut(Arg0, Arg1, Arg2)); }
+	private void test_case_2() { int[] Arg0 = new int[]{1, 2, 8, 9, 5}; int[] Arg1 = new int[]{1, 8, 2, 9, 5}; int[] Arg2 = new int[]{4, 4, 4, 4, 4}; int Arg3 = 3; verify_case(2, Arg3, minimumCut(Arg0, Arg1, Arg2)); }
+	private void test_case_3() { int[] Arg0 = new int[]{1, 2, 8, 9, 5}; int[] Arg1 = new int[]{1, 8, 2, 9, 5}; int[] Arg2 = new int[]{3, 3, 3, 3, 3}; int Arg3 = 4; verify_case(3, Arg3, minimumCut(Arg0, Arg1, Arg2)); }
+	private void test_case_4() { int[] Arg0 = new int[]{3, 10, 6, 2, 8, 7, 5, 4, 9, 1}; int[] Arg1 = new int[]{4, 10, 6, 9, 8, 7, 3, 2, 5, 1}; int[] Arg2 = new int[]{4, 2, 2, 4, 4, 5, 4, 4, 2, 3}; int Arg3 = 5; verify_case(4, Arg3, minimumCut(Arg0, Arg1, Arg2)); }
+	private void test_case_5() { int[] Arg0 = new int[]{55, 67, 100, 38, 80, 98, 47, 58, 61, 33}; int[] Arg1 = new int[]{87, 17, 20, 7, 57, 19, 23, 68, 27, 39}; int[] Arg2 = new int[]{6, 2, 8, 8, 31, 25, 23, 19, 45, 4}; int Arg3 = 6; verify_case(5, Arg3, minimumCut(Arg0, Arg1, Arg2)); }
+
+// END CUT HERE
+// BEGIN CUT HERE
+public static void Main() {
+try {
+SaveTheTrees ___test = new SaveTheTrees();
+___test.run_test(-1);
+} catch(Exception e) {
+//Console.WriteLine(e.StackTrace);
+Console.WriteLine(e.ToString());
+}
+}
+// END CUT HERE
+}

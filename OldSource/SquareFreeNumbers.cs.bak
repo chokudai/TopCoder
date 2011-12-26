@@ -1,0 +1,40 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class SquareFreeNumbers {
+public int getCount(long min, long max) {
+
+}
+
+
+
+
+// BEGIN CUT HERE
+	public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); }
+	private void verify_case(int Case, int Expected, int Received) {
+		Console.Write("Test Case #" + Case + "...");
+		if (Expected == Received) 
+			Console.WriteLine("PASSED"); 
+		else { 
+			Console.WriteLine("FAILED"); 
+			Console.WriteLine("\tExpected: \"" + Expected + '\"');
+			Console.WriteLine("\tReceived: \"" + Received + '\"'); } }
+	private void test_case_0() { long Arg0 = 1l; long Arg1 = 10l; int Arg2 = 7; verify_case(0, Arg2, getCount(Arg0, Arg1)); }
+	private void test_case_1() { long Arg0 = 15l; long Arg1 = 15l; int Arg2 = 1; verify_case(1, Arg2, getCount(Arg0, Arg1)); }
+	private void test_case_2() { long Arg0 = 1l; long Arg1 = 1000l; int Arg2 = 608; verify_case(2, Arg2, getCount(Arg0, Arg1)); }
+
+// END CUT HERE
+// BEGIN CUT HERE
+public static void Main() {
+try {
+SquareFreeNumbers ___test = new SquareFreeNumbers();
+___test.run_test(-1);
+} catch(Exception e) {
+//Console.WriteLine(e.StackTrace);
+Console.WriteLine(e.ToString());
+}
+}
+// END CUT HERE
+}

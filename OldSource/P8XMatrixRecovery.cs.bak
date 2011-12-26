@@ -1,0 +1,70 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class P8XMatrixRecovery {
+public string[] solve(string[] rows, string[] columns) {
+
+}
+
+
+
+
+// BEGIN CUT HERE
+	public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); if ((Case == -1) || (Case == 3)) test_case_3(); }
+	private void verify_case(int Case, string[] Expected, string[] Received) {
+		Console.Write("Test Case #" + Case + "...");
+		if (equal_arrays(Expected, Received)) 
+			Console.WriteLine("PASSED"); 
+		else { 
+			Console.WriteLine("FAILED"); 
+			Console.WriteLine("\tExpected: " + print_array(Expected)); 
+			Console.WriteLine("\tReceived: " + print_array(Received)); } }
+	string print_array(string[] V) {
+		System.Text.StringBuilder builder = new System.Text.StringBuilder();
+		builder.Append("{ ");
+		foreach (string o in V) {
+			builder.Append('\"');
+			builder.Append(o.ToString());
+			builder.Append("\",");
+		}
+		builder.Append(" }");
+		return builder.ToString();
+	}
+	bool equal_arrays(string[] a, string[]b) {
+		if (a.Length != b.Length) return false;
+		for (int i = 0; i < a.Length; ++i) if (a[i] != b[i]) return false;
+		return true;
+	}
+	private void test_case_0() { string[] Arg0 = new string[]{"10?"
+,"?11"}; string[] Arg1 = new string[]{"01"
+,"10"
+,"1?"}
+; string[] Arg2 = new string[]{"101", "011" }; verify_case(0, Arg2, solve(Arg0, Arg1)); }
+	private void test_case_1() { string[] Arg0 = new string[]{"0"
+,"?"
+,"1"}; string[] Arg1 = new string[]{"0?1"}; string[] Arg2 = new string[]{"0", "0", "1" }; verify_case(1, Arg2, solve(Arg0, Arg1)); }
+	private void test_case_2() { string[] Arg0 = new string[]{"10"
+,"01"}; string[] Arg1 = new string[]{"10"
+,"01"}; string[] Arg2 = new string[]{"10", "01" }; verify_case(2, Arg2, solve(Arg0, Arg1)); }
+	private void test_case_3() { string[] Arg0 = new string[]{"??0"
+,"11?"
+,"?01"
+,"1?1"}; string[] Arg1 = new string[]{"1???"
+,"?111"
+,"0?1?"}; string[] Arg2 = new string[]{"010", "110", "101", "101" }; verify_case(3, Arg2, solve(Arg0, Arg1)); }
+
+// END CUT HERE
+// BEGIN CUT HERE
+public static void Main() {
+try {
+P8XMatrixRecovery ___test = new P8XMatrixRecovery();
+___test.run_test(-1);
+} catch(Exception e) {
+//Console.WriteLine(e.StackTrace);
+Console.WriteLine(e.ToString());
+}
+}
+// END CUT HERE
+}

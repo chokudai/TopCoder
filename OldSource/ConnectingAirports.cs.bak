@@ -1,0 +1,59 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class ConnectingAirports {
+    public string[] getSchedule(int[] capacityA, int[] capacityU)
+    {
+        int i, j;
+        int lenA = capacityA.Length;
+        int lenB = capacityU.Length;
+        string[] res = new string[lenA];
+        for (i = 0; i < lenA; i++) if (capacityA[i] > capacityU.Length) return new string[0];
+        for (i = 0; i < lenA; i++)
+        {
+            res[i] = "";
+            for (j = lenB-1; j >= 0; j--)
+            {
+                if (capacityA[i] == 0) { res[i] = "0" + res[i]; continue; }
+                if (capacityU[j] == 0) { res[i] = "0" + res[i]; continue; }
+                capacityU[j]--;
+                capacityA[i]--;
+                if (check(capacityA, capacityU)) { res[i] = "1" + res[i];}
+                else { capacityU[j]++; capacityA[i]++; res[i] = "0" + res[i]; continue; }
+            }
+            if (capacityA[i] != 0) return new string[0];
+        }
+        for (j = 0; j < lenB; j++) if (capacityU[j] != 0) return new string[0];
+        return res;
+    }
+
+    bool check(int[] capaA, int[] capaB)
+    {
+        int i, j;
+        int[] capA = new int[capaA.Length];
+        int[] capB = new int[capaB.Length];
+        for (i = 0; i < capA.Length; i++) capA[i] = capaA[i];
+        for (i = 0; i < capB.Length; i++) capB[i] = capaB[i];
+        Array.Sort(capA);
+        Array.Sort(capB);
+        Array.Reverse(capB);
+        for (i = 0; i < capA.Length; i++)
+        {
+            for (j = 0; j < capA[i]; j++)
+            {
+                capB[j]--;
+            }
+            Array.Sort(capB);
+            Array.Reverse(capB);
+        }
+        for (i = 0; i < capB.Length; i++) if (capB[i] != 0) return false;
+        return true;
+    }
+}
+
+
+// Powered by FileEdit
+// Powered by TZTester 1.01 [25-Feb-2003] [modified for C# by Petr]
+// Powered by CodeProcessor

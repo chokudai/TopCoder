@@ -1,0 +1,55 @@
++ SRM149 DIV2 Hard
+客をグループ分けして課金したときの売上を最大にする
+http://www.topcoder.com/stat?c=problem_statement&pm=1600&rd=4550
+
+・パッと見思いつかない全探査の良い例
+・一瞬DPっぽく見える　全探査でO(N^4) DPだとO(N^2)
+・題材として凄く良さそう
+
++ 2001 Invitational Round 1 Hard
+授業に依存関係があって取る順番を返す
+http://www.topcoder.com/stat?c=problem_statement&pm=164&rd=50
+
+・あまり良い問題ではない？
+・解き方が判らないということはまずありえない
+・解き方が明らかな問題を、いかに効率良く解くか、という点で使えなくはない
+・仕様の説明が長すぎるので、正確に解こうとすると、問題を読む時間が一番長くなってしまう
+
++ TopCoder Collegiate Challenge Round 4 Medium
+タイル並べ
+http://www.topcoder.com/stat?c=problem_statement&pm=1270&rd=4482
+
+・端の例外処理が面倒
+・問題の核の部分は論理思考だが、コードに落とす手間が大きい
+
++ TopCoder Collegiate Challenge Semifinal Round 2 Hard
+環状に並べて交差しないように線を引く
+http://www.topcoder.com/stat?c=problem_statement&pm=1639&rd=4492
+
++ TopCoder Collegiate Challenge Semifinal Round 4 Medium
+暗号
+http://www.topcoder.com/stat?c=problem_statement&pm=1221&rd=4494
+
++ SRM144 DIV2 Medium
+復号化
+http://www.topcoder.com/stat?c=problem_statement&pm=1704&rd=4515
+
++ SRM144 DIV1 Medium
+ゲーム
+http://www.topcoder.com/stat?c=problem_statement&pm=1659&rd=4515
+
++ SRM145 DIV2 Medium
+長方形の中に含まれる長方形の数
+http://www.topcoder.com/stat?c=round_overview&er=4&rd=4530
+
++ SRM146 DIV1 Hard
+ロータリーから車がすべて出て行く時間
+http://www.topcoder.com/stat?c=problem_statement&pm=1605&rd=4535
+
++ SRM151 DIV2 Medium
+ある日付に一番近い日付を返す
+http://www.topcoder.com/stat?c=problem_statement&pm=1355&rd=4540
+
++ SRM153 DIV1 Hard
+ガソリンスタンドを経由しつつ走るときのコストを最小化
+http://www.topcoder.com/stat?c=problem_statement&pm=1770&rd=4570

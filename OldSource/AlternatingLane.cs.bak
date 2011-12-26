@@ -1,0 +1,41 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class AlternatingLane {
+public double expectedBeauty(int[] low, int[] high) {
+
+}
+
+
+
+
+// BEGIN CUT HERE
+	public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); if ((Case == -1) || (Case == 3)) test_case_3(); }
+	private void verify_case(int Case, double Expected, double Received) {
+		Console.Write("Test Case #" + Case + "...");
+		if (Expected == Received) 
+			Console.WriteLine("PASSED"); 
+		else { 
+			Console.WriteLine("FAILED"); 
+			Console.WriteLine("\tExpected: \"" + Expected + '\"');
+			Console.WriteLine("\tReceived: \"" + Received + '\"'); } }
+	private void test_case_0() { int[] Arg0 = new int[]{1}; int[] Arg1 = new int[]{100}; double Arg2 = 0.0; verify_case(0, Arg2, expectedBeauty(Arg0, Arg1)); }
+	private void test_case_1() { int[] Arg0 = new int[]{1, 1, 1}; int[] Arg1 = new int[]{2, 2, 2}; double Arg2 = 1.0; verify_case(1, Arg2, expectedBeauty(Arg0, Arg1)); }
+	private void test_case_2() { int[] Arg0 = new int[]{1, 3, 5, 7, 9}; int[] Arg1 = new int[]{2, 4, 6, 8, 10}; double Arg2 = 8.0; verify_case(2, Arg2, expectedBeauty(Arg0, Arg1)); }
+	private void test_case_3() { int[] Arg0 = new int[]{4, 3, 3, 7}; int[] Arg1 = new int[]{10, 7, 7, 7}; double Arg2 = 6.171428571428572; verify_case(3, Arg2, expectedBeauty(Arg0, Arg1)); }
+
+// END CUT HERE
+// BEGIN CUT HERE
+public static void Main() {
+try {
+AlternatingLane ___test = new AlternatingLane();
+___test.run_test(-1);
+} catch(Exception e) {
+//Console.WriteLine(e.StackTrace);
+Console.WriteLine(e.ToString());
+}
+}
+// END CUT HERE
+}

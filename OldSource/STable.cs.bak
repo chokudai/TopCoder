@@ -1,0 +1,43 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class STable {
+public string getString(string s, string t, long pos) {
+
+}
+
+
+
+
+// BEGIN CUT HERE
+	public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); if ((Case == -1) || (Case == 3)) test_case_3(); if ((Case == -1) || (Case == 4)) test_case_4(); if ((Case == -1) || (Case == 5)) test_case_5(); }
+	private void verify_case(int Case, string Expected, string Received) {
+		Console.Write("Test Case #" + Case + "...");
+		if (Expected == Received) 
+			Console.WriteLine("PASSED"); 
+		else { 
+			Console.WriteLine("FAILED"); 
+			Console.WriteLine("\tExpected: \"" + Expected + '\"');
+			Console.WriteLine("\tReceived: \"" + Received + '\"'); } }
+	private void test_case_0() { string Arg0 = "ad"; string Arg1 = "cb"; long Arg2 = 0l; string Arg3 = "acbacd"; verify_case(0, Arg3, getString(Arg0, Arg1, Arg2)); }
+	private void test_case_1() { string Arg0 = "fox"; string Arg1 = "cat"; long Arg2 = 0l; string Arg3 = "acfcfoacftacfcfocfox"; verify_case(1, Arg3, getString(Arg0, Arg1, Arg2)); }
+	private void test_case_2() { string Arg0 = "Ra6b1t"; string Arg1 = "W0lf"; long Arg2 = 66l; string Arg3 = "RWab0RWRWa0RWl0RWRWa6RWa0RWRWa6RWa6RWab0RWRWa6RWa6"; verify_case(2, Arg3, getString(Arg0, Arg1, Arg2)); }
+	private void test_case_3() { string Arg0 = "M0HAXG"; string Arg1 = "COFU12"; long Arg2 = 919l; string Arg3 = "MOFU2"; verify_case(3, Arg3, getString(Arg0, Arg1, Arg2)); }
+	private void test_case_4() { string Arg0 = "a0B1c2D3e4F5gHiJkLmN"; string Arg1 = "A9b8C7d6EfGhIjKlMn"; long Arg2 = 9876543210l; string Arg3 = "B10AaB1c0Aa9Aa0AaB0AaB10AaB1c0AaB1c20Aa9Aa0AaB0Aa9"; verify_case(4, Arg3, getString(Arg0, Arg1, Arg2)); }
+	private void test_case_5() { string Arg0 = "TCOR2"; string Arg1 = "MEDiUm"; long Arg2 = 350l; string Arg3 = "MTDEMTiCMTEMTDEMTDEMTiDEMTiUCMTEMTCMTOCMTEMTDEMTCM"; verify_case(5, Arg3, getString(Arg0, Arg1, Arg2)); }
+
+// END CUT HERE
+// BEGIN CUT HERE
+public static void Main() {
+try {
+STable ___test = new STable();
+___test.run_test(-1);
+} catch(Exception e) {
+//Console.WriteLine(e.StackTrace);
+Console.WriteLine(e.ToString());
+}
+}
+// END CUT HERE
+}

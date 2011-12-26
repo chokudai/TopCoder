@@ -1,0 +1,120 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class Bribes
+{
+    DateTime dt;
+    int best;
+    bool[] bestar = new bool[50];
+    Random r;
+
+    public int minBribes(int[] influence, int[] resistance)
+    {
+        dt = DateTime.Now;
+        best = 100;
+        r = new Random();
+        int i, j;
+        int[] resi;
+        resi = (int[])resistance.Clone();
+        for (i = 0; i < resi.Length; i++)
+        {
+            for (j = 0; j < resi.Length; j++)
+            {
+                resi[i] -= (int)(influence[j] / ((long)1 << (Math.Abs(i - j))));
+            }
+        }
+        for (i = 0; i < resi.Length; i++) if (resi[i] > 0) return -1;
+
+        best = influence.Length;
+        
+        for (i = 0; i < influence.Length; i++) bestar[i] = true;
+
+        while ((DateTime.Now - dt).TotalMilliseconds < 1800)
+        {
+            bool[] ar = (bool[])bestar.Clone();
+            resi = (int[])resistance.Clone();
+            for(i = 0; i < influence.Length; i++)
+            {
+                if (!ar[i] && r.Next(3) == 1) ar[i] = true;
+                if (!ar[i])
+                {
+                    for (j = 0; j < resi.Length; j++)
+                    {
+                        resi[i] -= (int)(influence[j] / ((long)1 << (Math.Abs(i - j))));
+                    }
+                }
+                int[] decar = randarray(influence.Length);
+                for (int ii = 0; ii < influence.Length; ii++)
+                {
+                    i = decar[ii];
+                    
+                    if (j == resi.Length)
+                    {
+                        for (j = 0; j < resi.Length; j++)
+                        {
+                            resi[i] -= (int)(influence[j] / ((long)1 << (Math.Abs(i - j))));
+                        }
+                        ar[i] = false;
+                    }
+                }
+            }
+            return best;
+        }
+        return best;
+    }
+
+    int[] randarray(int a)
+    {
+        int[] res = new int[a];
+        int i;
+        for (i = 0; i < a; i++) res[i] = i;
+        for (i = 0; i < a; i++)
+        {
+            int b = r.Next(a - i) + i;
+            int c = res[b];
+            res[b] = res[i];
+            res[i] = c;
+        }
+        return res;
+    }
+
+
+    // BEGIN CUT HERE
+    public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); if ((Case == -1) || (Case == 3)) test_case_3(); if ((Case == -1) || (Case == 4)) test_case_4(); }
+    private void verify_case(int Case, int Expected, int Received)
+    {
+        Console.Write("Test Case #" + Case + "...");
+        if (Expected == Received)
+            Console.WriteLine("PASSED");
+        else
+        {
+            Console.WriteLine("FAILED");
+            Console.WriteLine("\tExpected: \"" + Expected + '\"');
+            Console.WriteLine("\tReceived: \"" + Received + '\"');
+        }
+    }
+    private void test_case_0() { int[] Arg0 = new int[] { 10, 3, 5, 3, 1 }; int[] Arg1 = new int[] { 11, 2, 7, 3, 1 }; int Arg2 = 2; verify_case(0, Arg2, minBribes(Arg0, Arg1)); }
+    private void test_case_1() { int[] Arg0 = new int[] { 15, 15, 15 }; int[] Arg1 = new int[] { 13, 42, 13 }; int Arg2 = -1; verify_case(1, Arg2, minBribes(Arg0, Arg1)); }
+    private void test_case_2() { int[] Arg0 = new int[] { 10, 16, 4, 7, 1, 1, 13 }; int[] Arg1 = new int[] { 10, 16, 4, 7, 1, 1, 13 }; int Arg2 = 4; verify_case(2, Arg2, minBribes(Arg0, Arg1)); }
+    private void test_case_3() { int[] Arg0 = new int[] { 479, 340, 398, 40, 477, 181, 422, 377, 60, 486, 15, 500, 307, 1, 2, 65, 411, 374, 446, 401 }; int[] Arg1 = new int[] { 402, 87, 20, 76, 468, 493, 252, 98, 216, 58, 89, 500, 89, 26, 8, 125, 269, 116, 426, 81 }; int Arg2 = 7; verify_case(3, Arg2, minBribes(Arg0, Arg1)); }
+    private void test_case_4() { int[] Arg0 = new int[] { 21, 196, 401, 157, 9, 497, 371, 84, 395, 495, 401, 190, 465, 359, 47, 441, 245, 487, 118, 405 }; int[] Arg1 = new int[] { 127, 313, 376, 94, 66, 37, 237, 142, 315, 495, 257, 153, 437, 339, 483, 356, 16, 132, 231, 342 }; int Arg2 = 8; verify_case(4, Arg2, minBribes(Arg0, Arg1)); }
+
+    // END CUT HERE
+    // BEGIN CUT HERE
+    public static void Main()
+    {
+        try
+        {
+            Bribes ___test = new Bribes();
+            ___test.run_test(-1);
+        }
+        catch (Exception e)
+        {
+            //Console.WriteLine(e.StackTrace);
+            Console.WriteLine(e.ToString());
+        }
+    }
+    // END CUT HERE
+}

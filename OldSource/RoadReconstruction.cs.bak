@@ -1,0 +1,49 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class RoadReconstruction {
+public string selectReconstruction(string[] roads) {
+
+}
+
+
+
+
+// BEGIN CUT HERE
+	public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); if ((Case == -1) || (Case == 3)) test_case_3(); if ((Case == -1) || (Case == 4)) test_case_4(); }
+	private void verify_case(int Case, string Expected, string Received) {
+		Console.Write("Test Case #" + Case + "...");
+		if (Expected == Received) 
+			Console.WriteLine("PASSED"); 
+		else { 
+			Console.WriteLine("FAILED"); 
+			Console.WriteLine("\tExpected: \"" + Expected + '\"');
+			Console.WriteLine("\tReceived: \"" + Received + '\"'); } }
+	private void test_case_0() { string[] Arg0 = new string[]{"M1 Moscow Kiev 1", "M2 Minsk Kiev", "M3 Minsk Warsaw"}; string Arg1 = "M1"; verify_case(0, Arg1, selectReconstruction(Arg0)); }
+	private void test_case_1() { string[] Arg0 = new string[]{"R1 NY Washington", "M1 Moscow StPetersburg 1000"}; string Arg1 = "IMPOSSIBLE"; verify_case(1, Arg1, selectReconstruction(Arg0)); }
+	private void test_case_2() { string[] Arg0 = new string[]{"B1 Bratislava Havka"}; string Arg1 = ""; verify_case(2, Arg1, selectReconstruction(Arg0)); }
+	private void test_case_3() { string[] Arg0 = new string[]{"M1 Moscow StPetersburg 1", "M2 Moscow Saratov 2", "S0 Saratov StPetersburg"}; string Arg1 = "M1"; verify_case(3, Arg1, selectReconstruction(Arg0)); }
+	private void test_case_4() { string[] Arg0 = new string[]{"O1 Beetown Fearnot 6","N7 Fearnot Hornytown","M8 Hornytown Belcher 10",
+ "L5 Belcher Fearnot 8","C7 Fearnot Beetown 4","K7 Quiggleville Beetown 12",
+ "H4 Beetown DryFork 6","Z0 Hornytown Belcher 1","O5 Belcher Quiggleville 10",
+ "U7 Quiggleville Fearnot 2","A8 Fearnot Quiggleville 8","T6 Beetown DryFork 17",
+ "E8 Quiggleville DryFork 8","Y4 DryFork Quiggleville 4","Q8 Hornytown DryFork 2",
+ "J9 Quiggleville DryFork 19","M4 DryFork Quiggleville 7","T1 DryFork Fearnot 9",
+ "G4 Fearnot DryFork 6","V9 Hornytown Beetown 5","O6 Quiggleville Beetown 4",
+ "L8 Beetown Roachtown 5","D5 Belcher DryFork 8","W5 Belcher DryFork 1"}; string Arg1 = "C7 L8 U7 W5 Z0"; verify_case(4, Arg1, selectReconstruction(Arg0)); }
+
+// END CUT HERE
+// BEGIN CUT HERE
+public static void Main() {
+try {
+RoadReconstruction ___test = new RoadReconstruction();
+___test.run_test(-1);
+} catch(Exception e) {
+//Console.WriteLine(e.StackTrace);
+Console.WriteLine(e.ToString());
+}
+}
+// END CUT HERE
+}

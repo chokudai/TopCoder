@@ -1,0 +1,43 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class DoNotTurn {
+public int minimumTurns(int N, int X0, int A, int B, int Y0, int C, int D, int P, int M) {
+
+}
+
+
+
+
+// BEGIN CUT HERE
+	public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); if ((Case == -1) || (Case == 3)) test_case_3(); if ((Case == -1) || (Case == 4)) test_case_4(); if ((Case == -1) || (Case == 5)) test_case_5(); }
+	private void verify_case(int Case, int Expected, int Received) {
+		Console.Write("Test Case #" + Case + "...");
+		if (Expected == Received) 
+			Console.WriteLine("PASSED"); 
+		else { 
+			Console.WriteLine("FAILED"); 
+			Console.WriteLine("\tExpected: \"" + Expected + '\"');
+			Console.WriteLine("\tReceived: \"" + Received + '\"'); } }
+	private void test_case_0() { int Arg0 = 2; int Arg1 = 0; int Arg2 = 0; int Arg3 = 1; int Arg4 = 0; int Arg5 = 0; int Arg6 = 1; int Arg7 = 10; int Arg8 = 2; int Arg9 = 1; verify_case(0, Arg9, minimumTurns(Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8)); }
+	private void test_case_1() { int Arg0 = 3; int Arg1 = 0; int Arg2 = 1; int Arg3 = 1; int Arg4 = 1; int Arg5 = 1; int Arg6 = 0; int Arg7 = 3; int Arg8 = 3; int Arg9 = -1; verify_case(1, Arg9, minimumTurns(Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8)); }
+	private void test_case_2() { int Arg0 = 3; int Arg1 = 0; int Arg2 = 1; int Arg3 = 1; int Arg4 = 1; int Arg5 = 1; int Arg6 = 1; int Arg7 = 3; int Arg8 = 3; int Arg9 = 3; verify_case(2, Arg9, minimumTurns(Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8)); }
+	private void test_case_3() { int Arg0 = 10; int Arg1 = 911111; int Arg2 = 845499; int Arg3 = 866249; int Arg4 = 688029; int Arg5 = 742197; int Arg6 = 312197; int Arg7 = 384409; int Arg8 = 40; int Arg9 = 12; verify_case(3, Arg9, minimumTurns(Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8)); }
+	private void test_case_4() { int Arg0 = 5; int Arg1 = 23; int Arg2 = 2; int Arg3 = 3; int Arg4 = 35; int Arg5 = 5; int Arg6 = 7; int Arg7 = 9; int Arg8 = 3; int Arg9 = 2; verify_case(4, Arg9, minimumTurns(Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8)); }
+	private void test_case_5() { int Arg0 = 2; int Arg1 = 0; int Arg2 = 0; int Arg3 = 0; int Arg4 = 0; int Arg5 = 0; int Arg6 = 0; int Arg7 = 1; int Arg8 = 0; int Arg9 = 1; verify_case(5, Arg9, minimumTurns(Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8)); }
+
+// END CUT HERE
+// BEGIN CUT HERE
+public static void Main() {
+try {
+DoNotTurn ___test = new DoNotTurn();
+___test.run_test(-1);
+} catch(Exception e) {
+//Console.WriteLine(e.StackTrace);
+Console.WriteLine(e.ToString());
+}
+}
+// END CUT HERE
+}

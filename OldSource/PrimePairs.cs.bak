@@ -1,0 +1,60 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class PrimePairs {
+public int[] matches(int[] numbers) {
+
+}
+
+
+
+
+// BEGIN CUT HERE
+	public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); if ((Case == -1) || (Case == 3)) test_case_3(); if ((Case == -1) || (Case == 4)) test_case_4(); }
+	private void verify_case(int Case, int[] Expected, int[] Received) {
+		Console.Write("Test Case #" + Case + "...");
+		if (equal_arrays(Expected, Received)) 
+			Console.WriteLine("PASSED"); 
+		else { 
+			Console.WriteLine("FAILED"); 
+			Console.WriteLine("\tExpected: " + print_array(Expected)); 
+			Console.WriteLine("\tReceived: " + print_array(Received)); } }
+	string print_array(int[] V) {
+		System.Text.StringBuilder builder = new System.Text.StringBuilder();
+		builder.Append("{ ");
+		foreach (int o in V) {
+			builder.Append('\"');
+			builder.Append(o.ToString());
+			builder.Append("\",");
+		}
+		builder.Append(" }");
+		return builder.ToString();
+	}
+	bool equal_arrays(int[] a, int[]b) {
+		if (a.Length != b.Length) return false;
+		for (int i = 0; i < a.Length; ++i) if (a[i] != b[i]) return false;
+		return true;
+	}
+	private void test_case_0() { int[] Arg0 = new int[]{ 1, 4, 7, 10, 11, 12 }; int[] Arg1 = new int[]{4, 10 }; verify_case(0, Arg1, matches(Arg0)); }
+	private void test_case_1() { int[] Arg0 = new int[]{ 11, 1, 4, 7, 10, 12 }; int[] Arg1 = new int[]{12 }; verify_case(1, Arg1, matches(Arg0)); }
+	private void test_case_2() { int[] Arg0 = new int[]{ 8, 9, 1, 14 }; int[] Arg1 = new int[]{ }; verify_case(2, Arg1, matches(Arg0)); }
+	private void test_case_3() { int[] Arg0 = new int[]{ 34, 39, 32, 4, 9, 35, 14, 17 }; int[] Arg1 = new int[]{9, 39 }; verify_case(3, Arg1, matches(Arg0)); }
+	private void test_case_4() { int[] Arg0 = new int[]{ 941, 902, 873, 841, 948, 851, 945, 854, 815, 898,
+  806, 826, 976, 878, 861, 919, 926, 901, 875, 864 }
+; int[] Arg1 = new int[]{806, 926 }; verify_case(4, Arg1, matches(Arg0)); }
+
+// END CUT HERE
+// BEGIN CUT HERE
+public static void Main() {
+try {
+PrimePairs ___test = new PrimePairs();
+___test.run_test(-1);
+} catch(Exception e) {
+//Console.WriteLine(e.StackTrace);
+Console.WriteLine(e.ToString());
+}
+}
+// END CUT HERE
+}

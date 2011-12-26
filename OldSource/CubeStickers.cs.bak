@@ -1,0 +1,26 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class CubeStickers {
+    public string isPossible(string[] sticker)
+    {
+        int sum = 0;
+        Dictionary<string, int> dic = new Dictionary<string, int>();
+        foreach (string s in sticker) dic[s] = 0;
+        foreach (string s in sticker) dic[s]++;
+        foreach (int a in dic.Values) sum += Math.Min(2, a);
+        if (sum >= 6) return "YES";
+        else return "NO";
+    }
+
+
+
+
+}
+
+
+// Powered by FileEdit
+// Powered by TZTester 1.01 [25-Feb-2003] [modified for C# by Petr]
+// Powered by CodeProcessor

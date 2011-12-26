@@ -1,0 +1,65 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class ShuffledPlaylist {
+
+    long mod = 600921647;
+
+    public int count(string[] songs, string[] transitions, int minLength, int maxLength)
+    {
+        long[,] ar = new long[10, 10];
+        int i, j;
+        long[,] dp = new long[20,10];
+        string s = "";
+        foreach (string ss in songs) s += ss;
+        string[] ns = s.Split(",");
+        int len = ns.Length;
+        int[] song = new int[len];
+        int[] min = new int[len];
+
+
+    }
+
+
+
+
+// BEGIN CUT HERE
+	public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); if ((Case == -1) || (Case == 3)) test_case_3(); }
+	private void verify_case(int Case, int Expected, int Received) {
+		Console.Write("Test Case #" + Case + "...");
+		if (Expected == Received) 
+			Console.WriteLine("PASSED"); 
+		else { 
+			Console.WriteLine("FAILED"); 
+			Console.WriteLine("\tExpected: \"" + Expected + '\"');
+			Console.WriteLine("\tReceived: \"" + Received + '\"'); } }
+	private void test_case_0() { string[] Arg0 = new string[]{"0 3,1 2,0 2"}; string[] Arg1 = new string[]{"YY","YY"}; int Arg2 = 2; int Arg3 = 4; int Arg4 = 7; verify_case(0, Arg4, count(Arg0, Arg1, Arg2, Arg3)); }
+	private void test_case_1() { string[] Arg0 = new string[]{"0 3,1 2,0 2"}; string[] Arg1 = new string[]{"YN","NY"}; int Arg2 = 2; int Arg3 = 4; int Arg4 = 5; verify_case(1, Arg4, count(Arg0, Arg1, Arg2, Arg3)); }
+	private void test_case_2() { string[] Arg0 = new string[]{"0 9",",1 8,","2 3,2 5"}; string[] Arg1 = new string[]{"YYY","NYY","NNY"}; int Arg2 = 5; int Arg3 = 9; int Arg4 = 7; verify_case(2, Arg4, count(Arg0, Arg1, Arg2, Arg3)); }
+	private void test_case_3() { string[] Arg0 = new string[]{"0 8,","5 6,2"," 2,2 3,6 8,5 8,5 3,0 6,0 7,6 5,3 2",
+",0 9,2 3,3 4,5 4,3 3,3 3,2 8,2 9,5 7,2 8,0 1,5 9,1",
+" 8,2 9,1 6,3 6,2 6,0 4,6 3,1 5,2 7,4 5,3 3,0",
+" 5,6 1,5 6,4 8,5 9,1 4,2 9,5 6,5 6,0 8,3 5,4 6,0 3",
+",4 2,5 6,6 2,4 3,1 3,6 3,0 8,2 8,3 7,4 2,0 7,0 2,1",
+" 3,4 7,6 3,6 4,3 9,0 2,0 7,0 8,6 4,1 3,2 5,0 6,5 4",
+",3 2,3 2,1 5,2 1,5 2,4 8,0 5,1"," ","7,2 6,5 7",",",
+"6 9,5 5,","4 2",",4"," 9,0 5,4 8,6 5,5 9,5 8,3 ","2",
+",5 ","6,2 3,0 7,1 7,","2 1,0 4",",2 9",",","3"," ","4"}
+; string[] Arg1 = new string[]{"YYYYYYY","YYYYYYY","YYYYYYY","YYYYYYY","YYYYYYY","YYYYYYY","YYYYYYY"}
+; int Arg2 = 1; int Arg3 = 10000; int Arg4 = 348387817; verify_case(3, Arg4, count(Arg0, Arg1, Arg2, Arg3)); }
+
+// END CUT HERE
+// BEGIN CUT HERE
+public static void Main() {
+try {
+ShuffledPlaylist ___test = new ShuffledPlaylist();
+___test.run_test(-1);
+} catch(Exception e) {
+//Console.WriteLine(e.StackTrace);
+Console.WriteLine(e.ToString());
+}
+}
+// END CUT HERE
+}

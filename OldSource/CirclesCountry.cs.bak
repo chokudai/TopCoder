@@ -1,0 +1,42 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class CirclesCountry {
+public int leastBorders(int[] X, int[] Y, int[] R, int x1, int y1, int x2, int y2) {
+
+}
+
+
+
+
+// BEGIN CUT HERE
+	public void run_test(int Case) { if ((Case == -1) || (Case == 0)) test_case_0(); if ((Case == -1) || (Case == 1)) test_case_1(); if ((Case == -1) || (Case == 2)) test_case_2(); if ((Case == -1) || (Case == 3)) test_case_3(); if ((Case == -1) || (Case == 4)) test_case_4(); }
+	private void verify_case(int Case, int Expected, int Received) {
+		Console.Write("Test Case #" + Case + "...");
+		if (Expected == Received) 
+			Console.WriteLine("PASSED"); 
+		else { 
+			Console.WriteLine("FAILED"); 
+			Console.WriteLine("\tExpected: \"" + Expected + '\"');
+			Console.WriteLine("\tReceived: \"" + Received + '\"'); } }
+	private void test_case_0() { int[] Arg0 = new int[]{0}; int[] Arg1 = new int[]{0}; int[] Arg2 = new int[]{2}; int Arg3 = -5; int Arg4 = 1; int Arg5 = 5; int Arg6 = 1; int Arg7 = 0; verify_case(0, Arg7, leastBorders(Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6)); }
+	private void test_case_1() { int[] Arg0 = new int[]{0,-6,6}; int[] Arg1 = new int[]{0,1,2}; int[] Arg2 = new int[]{2,2,2}; int Arg3 = -5; int Arg4 = 1; int Arg5 = 5; int Arg6 = 1; int Arg7 = 2; verify_case(1, Arg7, leastBorders(Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6)); }
+	private void test_case_2() { int[] Arg0 = new int[]{1,-3,2,5,-4,12,12}; int[] Arg1 = new int[]{1,-1,2,5,5,1,1}; int[] Arg2 = new int[]{8,1,2,1,1,1,2}; int Arg3 = -5; int Arg4 = 1; int Arg5 = 12; int Arg6 = 1; int Arg7 = 3; verify_case(2, Arg7, leastBorders(Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6)); }
+	private void test_case_3() { int[] Arg0 = new int[]{-3,2,2,0,-4,12,12,12}; int[] Arg1 = new int[]{-1,2,3,1,5,1,1,1}; int[] Arg2 = new int[]{1,3,1,7,1,1,2,3}; int Arg3 = 2; int Arg4 = 3; int Arg5 = 13; int Arg6 = 2; int Arg7 = 5; verify_case(3, Arg7, leastBorders(Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6)); }
+	private void test_case_4() { int[] Arg0 = new int[]{-107,-38,140,148,-198,172,-179,148,176,153,-56,-187}; int[] Arg1 = new int[]{175,-115,23,-2,-49,-151,-52,42,0,68,109,-174}; int[] Arg2 = new int[]{135,42,70,39,89,39,43,150,10,120,16,8}; int Arg3 = 102; int Arg4 = 16; int Arg5 = 19; int Arg6 = -108; int Arg7 = 3; verify_case(4, Arg7, leastBorders(Arg0, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6)); }
+
+// END CUT HERE
+// BEGIN CUT HERE
+public static void Main() {
+try {
+CirclesCountry ___test = new CirclesCountry();
+___test.run_test(-1);
+} catch(Exception e) {
+//Console.WriteLine(e.StackTrace);
+Console.WriteLine(e.ToString());
+}
+}
+// END CUT HERE
+}
